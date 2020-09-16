@@ -22,6 +22,18 @@ describe('air-quality-advocate routes', () => {
 
       });
 
+    expect(response.body).toEqual({
+      jobId: expect.any(String),
+      phone: '503-555-1212',
+      coordinates: [
+        -76.84619,
+        39.143196
+      ],
+      range: '20 miles',
+      threshold: 35
+
+    });
+
 
   });
 
