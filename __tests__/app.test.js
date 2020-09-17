@@ -9,26 +9,24 @@ describe('air-quality-advocate routes', () => {
   });
   it('has a POST that inserts lat/lon, phone number, range and air quality into a notifications table', async() => {
     const response = await request(app)
-      .post('/api/v1/airquality')
+      .post('/api/v1/notifications')
       .send({
         phone: '503-555-1212',
-        coordinates: [
-          -76.84619,
-          39.143196
-        ],
+        lon: -122,
+        lat: 45,
+       
         range: '20 miles',
         threshold: 35
 
 
       });
+      
 
     expect(response.body).toEqual({
-      jobId: expect.any(String),
+      id: expect.any(String),
       phone: '503-555-1212',
-      coordinates: [
-        -76.84619,
-        39.143196
-      ],
+      lon: -122,
+      lat: 45,
       range: '20 miles',
       threshold: 35
 
